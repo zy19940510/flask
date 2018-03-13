@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>{{ title }},Hello,{{ user.nickname }}!</h1>
+<p class="test"></p>
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+
+</body>
+<script>
+    $test = $('.test');
+    $.ajax({
+        type: "GET",
+        url: "http://10.116.19.64:5000/json",
+        dataType: "json",
+        success: function (data) {
+            $test.empty();
+            $test.html(data.name);
+        }
+    });
+
+</script>
+</html>
